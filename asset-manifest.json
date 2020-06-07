@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/palindrome-checker/static/js/main.aa9ba8f8.chunk.js",
-    "main.js.map": "/palindrome-checker/static/js/main.aa9ba8f8.chunk.js.map",
+    "main.js": "/palindrome-checker/static/js/main.23affb02.chunk.js",
+    "main.js.map": "/palindrome-checker/static/js/main.23affb02.chunk.js.map",
     "runtime-main.js": "/palindrome-checker/static/js/runtime-main.ad04bce2.js",
     "runtime-main.js.map": "/palindrome-checker/static/js/runtime-main.ad04bce2.js.map",
     "static/js/2.26069858.chunk.js": "/palindrome-checker/static/js/2.26069858.chunk.js",
     "static/js/2.26069858.chunk.js.map": "/palindrome-checker/static/js/2.26069858.chunk.js.map",
     "index.html": "/palindrome-checker/index.html",
-    "precache-manifest.22d3e61b670077697f56375c8cb7cb11.js": "/palindrome-checker/precache-manifest.22d3e61b670077697f56375c8cb7cb11.js",
+    "precache-manifest.00def55c9d53c66b0037816a3a4eadfd.js": "/palindrome-checker/precache-manifest.00def55c9d53c66b0037816a3a4eadfd.js",
     "service-worker.js": "/palindrome-checker/service-worker.js",
     "static/js/2.26069858.chunk.js.LICENSE.txt": "/palindrome-checker/static/js/2.26069858.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ad04bce2.js",
     "static/js/2.26069858.chunk.js",
-    "static/js/main.aa9ba8f8.chunk.js"
+    "static/js/main.23affb02.chunk.js"
   ]
 }
