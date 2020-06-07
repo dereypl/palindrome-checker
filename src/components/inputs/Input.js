@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const Input = styled.input`
       display: flex;
@@ -18,6 +18,10 @@ const Input = styled.input`
       &:focus{
          outline: none;
       }
+      
+      ${({hasError}) => hasError && css`
+          border: 0.1rem solid ${({theme}) => theme.colors.error};
+      `}
 `;
 
 export default Input;

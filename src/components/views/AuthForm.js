@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, {useState} from 'react';
+import styled, {css} from 'styled-components';
 import {PersonIcon} from "../icons/PersonIcon";
 import Input from "../inputs/Input";
 import Button from "../buttons/Button";
+import {useForm} from "react-hook-form";
 
 const Wrapper = styled.div`
       display: flex;
@@ -34,25 +35,84 @@ const InputsWrapper = styled.div`
       margin-top: 4rem;
 `;
 
-const AuthFrom = () => (
-    <Wrapper>
-        <LoginForm>
-            <PersonIcon width="10rem" height="10rem"/>
-            <InputsWrapper>
-                <Input
-                    name="username"
-                    type="text"
-                    placeholder="Username"
-                />
-                <Input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                />
-            </InputsWrapper>
-            <Button>Login</Button>
-        </LoginForm>
-    </Wrapper>
+const ErrorWrapper = styled.div`
+      display: flex;
+      width: 100%;
+      font-size: ${({theme}) => theme.fontSize.s};
+      padding-top: 0.3rem;
+      height: 3rem;
+      color: ${({theme}) => theme.colors.error};
+      justify-content: flex-end;
+      
+      ${({AuthRequest}) => AuthRequest && css`
+          justify-content: center;
+          font-size: ${({theme}) => theme.fontSize.m};
+          margin-top: -2rem;
+      `}
+`;
+
+
+// --- CHECK IF ERRORS ---
+const hasInputError = inputError => inputError && inputError.value === undefined;
+const hasFormErrors = errors => !(errors.username === undefined && errors.password === undefined);
+
+// --- INPUT ERROR MESSAGES ---
+const InputValidationError = inputError => (
+    <ErrorWrapper>
+        {hasInputError(inputError) ? null : inputError.value.message}
+    </ErrorWrapper>
 );
+
+// --- AUTH REQUEST ERROR MESSAGE ---
+const AuthRequestError = ({isError}) => (
+    <ErrorWrapper AuthRequest>
+        {isError ? 'Username or password incorrect.' : null}
+    </ErrorWrapper>
+);
+
+
+const AuthFrom = () => {
+    const {handleSubmit, register, errors} = useForm();
+    const [authError, setAuthError] = useState(false);
+
+    const onSubmit = ({username, password}) => {
+        if (0) {
+            //TODO: handle authenticate and redirect
+            console.log(username);
+            console.log(password);
+            setAuthError(false);
+        } else if (!authError) setAuthError(true);
+    };
+
+    return (
+        <Wrapper>
+            <LoginForm onSubmit={handleSubmit(onSubmit)}>
+                <PersonIcon width="10rem" height="10rem"/>
+                <InputsWrapper>
+                    <Input
+                        name="username"
+                        type="text"
+                        placeholder="Username"
+                        onFocus={() => setAuthError(false)}
+                        hasError={hasInputError(errors.username)}
+                        ref={register({required: "Username cannot be empty."})}
+                    />
+                    <InputValidationError value={errors.username}/>
+                    <Input
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        onFocus={() => setAuthError(false)}
+                        hasError={hasInputError(errors.password)}
+                        ref={register({required: "Password cannot be empty."})}
+                    />
+                    <InputValidationError value={errors.password}/>
+                </InputsWrapper>
+                <AuthRequestError isError={authError}/>
+                <Button disabled={hasFormErrors(errors)}>Login</Button>
+            </LoginForm>
+        </Wrapper>
+    );
+};
 
 export default AuthFrom;
