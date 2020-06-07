@@ -1,3 +1,9 @@
 export const ROUTES = {
-    AUTH: '/'
+    PUBLIC: {
+        AUTH: '/',
+    },
+
+    USER: {
+        PALINDROMES: '/user/palindromes',
+    },
 };

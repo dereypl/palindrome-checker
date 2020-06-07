@@ -5,6 +5,8 @@ import Input from "../inputs/Input";
 import Button from "../buttons/Button";
 import {useForm} from "react-hook-form";
 import * as authService from "../../services/authService";
+import {ROUTES} from "../../utils/routes";
+import {useHistory} from "react-router-dom";
 
 const Wrapper = styled.div`
       display: flex;
@@ -73,11 +75,12 @@ const AuthRequestError = ({isError}) => (
 
 
 const AuthFrom = () => {
+    const history = useHistory();
     const {handleSubmit, register, errors} = useForm();
     const [authError, setAuthError] = useState(false);
 
     const onSubmit = ({username, password}) => {
-        if (authService.authenticate(username, password)) alert('auth success');
+        if (authService.authenticate(username, password)) history.replace(ROUTES.USER.PALINDROMES);
         else if (!authError) setAuthError(true);
     };
 
