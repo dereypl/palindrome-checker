@@ -22,6 +22,11 @@ const Input = styled.input`
       ${({hasError}) => hasError && css`
           border: 0.1rem solid ${({theme}) => theme.colors.error};
       `}
+      
+      ${({SearchPalindrome}) => SearchPalindrome && css`
+          font-size: ${({theme}) => theme.fontSize.xl};
+          height: 5rem;
+      `}
 `;
 
 export default Input;

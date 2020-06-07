@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const Button = styled.button`
       display: flex;
@@ -39,6 +39,19 @@ const Button = styled.button`
        &:focus{
            outline: none;
        }
+       
+       ${({PalindromeCheck}) => PalindromeCheck && css`
+
+          :disabled{
+              cursor: default;
+              color: ${({theme}) => theme.colors.gray};
+              background-color: ${({theme}) => theme.colors.dark_blue};
+              &:hover{
+                  background-position: 0;
+                  color: ${({theme}) => theme.colors.gray};
+               }
+          }
+      `} 
 `;
 
 export default Button;
