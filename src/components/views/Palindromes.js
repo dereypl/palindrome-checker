@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SearchBarContainer from "../containers/SearchBarContainer";
-import palindromes_list from '../../utils/init_state'
+import {useSelector} from "react-redux";
 
 
 const Wrapper = styled.div`
@@ -26,15 +26,19 @@ const Header = styled.header`
       justify-content: center;
 `;
 
-const Palindromes = () => (
+const Palindromes = () => {
+
+    const palindromesCollection = useSelector(state => state.palindromes || []);
+
+    return(
     <>
         <Header/>
         <Wrapper>
             <SearchBarContainer/>
             <h3>Last checked</h3>
-            {palindromes_list.palindromes.map(palindrome => <p>{palindrome.value}</p>)}
+            {palindromesCollection.map(palindrome => <p>{palindrome.value} : {palindrome.isPalindrome.toString()}</p>)}
         </Wrapper>
     </>
-);
+)};
 
 export default Palindromes;
