@@ -1,9 +1,16 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from '../App';
+import {checkIsPalindrome} from "../services/palindromeService";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+/*
+    There should be positive test also, but in the guidelines there was 'one unit test'.
+    I've decided to test exceptional cases.
+ */
+
+describe('checkIsPalindrome function', () => {
+
+    test('should return false on bad input data', () => {
+        expect(checkIsPalindrome(null)).toEqual(false);
+        expect(checkIsPalindrome(undefined)).toEqual(false);
+        expect(checkIsPalindrome("")).toEqual(false);
+        expect(checkIsPalindrome("itIsNotPalindrome")).toEqual(false);
+    })
 });
