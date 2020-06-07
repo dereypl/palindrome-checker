@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SearchBarContainer from "../containers/SearchBarContainer";
 import {useSelector} from "react-redux";
+import PalindromeContainer from "../containers/PalindromeContainer";
 
 
 const Wrapper = styled.div`
@@ -30,15 +31,18 @@ const Palindromes = () => {
 
     const palindromesCollection = useSelector(state => state.palindromes || []);
 
-    return(
-    <>
-        <Header/>
-        <Wrapper>
-            <SearchBarContainer/>
-            <h3>Last checked</h3>
-            {palindromesCollection.map(palindrome => <p>{palindrome.value} : {palindrome.isPalindrome.toString()}</p>)}
-        </Wrapper>
-    </>
-)};
+    return (
+        <>
+            <Header/>
+            <Wrapper>
+                <SearchBarContainer/>
+                <h3>Last checked</h3>
+                {palindromesCollection.map((palindrome, index) =>
+                    <PalindromeContainer key={index} palindrome={palindrome}/>)
+                }
+            </Wrapper>
+        </>
+    )
+};
 
 export default Palindromes;
