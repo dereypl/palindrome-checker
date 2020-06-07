@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SearchBarContainer from "../containers/SearchBarContainer";
+import palindromes_list from '../../utils/init_state'
 
 
 const Wrapper = styled.div`
@@ -9,6 +10,10 @@ const Wrapper = styled.div`
       width: 100%;
       align-items: center;
       padding: 0 15% 10rem;
+      
+      h3{
+        color: ${({theme}) => theme.colors.dark_blue};
+      }
 `;
 
 const Header = styled.header`
@@ -26,7 +31,8 @@ const Palindromes = () => (
         <Header/>
         <Wrapper>
             <SearchBarContainer/>
-            palindromes list
+            <h3>Last checked</h3>
+            {palindromes_list.palindromes.map(palindrome => <p>{palindrome.value}</p>)}
         </Wrapper>
     </>
 );

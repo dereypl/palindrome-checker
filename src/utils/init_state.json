@@ -1,0 +1,24 @@
+{
+  "palindromes": [
+    {
+      "value": "Zakopane na pokaz",
+      "isPalindrome": true
+    },
+  {
+      "value": "Anna",
+      "isPalindrome": true
+    },
+    {
+      "value": "Test",
+      "isPalindrome": false
+    },
+    {
+      "value": "Żartem dano nadmetraż",
+      "isPalindrome": true
+    },
+    {
+      "value": "To nie jest palindrom",
+      "isPalindrome": false
+    }
+  ]
+}
