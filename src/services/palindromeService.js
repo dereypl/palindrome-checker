@@ -1,10 +1,12 @@
+import {PALINDROME_LIST_ADD} from "../store/reducers/palindromesReducer";
+
 export const checkIsPalindrome = expression => {
 
     // --- CHECK IF NOT NULL OR UNDEFINED ---
-    if(!expression) return false;
+    if (!expression) return false;
 
     // --- CHECK IF LENGTH > 0 ---
-    if(!expression.trim().length) return false;
+    if (!expression.trim().length) return false;
 
     // --- REMOVE WHITE SPACES & MAKE CASE INSENSITIVE ---
     expression = expression.toLowerCase().replace(/ /g, '');
@@ -18,4 +20,13 @@ export const checkIsPalindrome = expression => {
 
     // --- EVERYTHING OK, IT'S A PALINDROME ---
     return true;
+};
+
+export const addToList = (expression) => dispatch => {
+
+    // --- CHECK EXPRESSION AND RETURN BOOLEAN VALUE ---
+    let isPalindrome = checkIsPalindrome(expression);
+
+    // --- ADD EXPRESSION TO REDUX PALINDROMES LIST ---
+    dispatch({type: PALINDROME_LIST_ADD, payload: {value: expression, isPalindrome}});
 };

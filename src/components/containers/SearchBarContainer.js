@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Input from "../inputs/Input";
 import Button from "../buttons/Button";
 import * as palindromeService from "../../services/palindromeService";
+import {useDispatch} from "react-redux";
 
 
 const SearchBar = styled.section`
@@ -33,11 +34,12 @@ const validateExpression = inputValue => inputValue && inputValue.length && inpu
 
 const SearchBarContainer = () => {
 
+    const dispatch = useDispatch();
     const [expression, setExpression] = useState('');
 
+    // --- ADD EXPRESSION TO REDUX PALINDROMES LIST & CLEAR INPUT ---
     const handleCheckButton = () => {
-        //TODO: ADD EXPRESSION TO REDUX LIST
-        console.log(palindromeService.checkIsPalindrome(expression));
+        dispatch(palindromeService.addToList(expression));
         setExpression('');
     };
 
