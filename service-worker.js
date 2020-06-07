@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/palindrome-checker/precache-manifest.f1feb27a91f398d4236a3208158d0934.js"
+  "/palindrome-checker/precache-manifest.37dfe4831eca226666c01b6a34b980aa.js"
 );
 
 self.addEventListener('message', (event) => {
