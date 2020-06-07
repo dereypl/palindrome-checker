@@ -4,6 +4,7 @@ import {PersonIcon} from "../icons/PersonIcon";
 import Input from "../inputs/Input";
 import Button from "../buttons/Button";
 import {useForm} from "react-hook-form";
+import * as authService from "../../services/authService";
 
 const Wrapper = styled.div`
       display: flex;
@@ -76,12 +77,8 @@ const AuthFrom = () => {
     const [authError, setAuthError] = useState(false);
 
     const onSubmit = ({username, password}) => {
-        if (0) {
-            //TODO: handle authenticate and redirect
-            console.log(username);
-            console.log(password);
-            setAuthError(false);
-        } else if (!authError) setAuthError(true);
+        if (authService.authenticate(username, password)) alert('auth success');
+        else if (!authError) setAuthError(true);
     };
 
     return (
