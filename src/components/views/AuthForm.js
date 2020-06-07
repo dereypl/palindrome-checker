@@ -7,6 +7,7 @@ import {useForm} from "react-hook-form";
 import * as authService from "../../services/authService";
 import {ROUTES} from "../../utils/routes";
 import {useHistory} from "react-router-dom";
+import AppLogo from "../logotypes/AppLogo";
 
 const Wrapper = styled.div`
       display: flex;
@@ -86,6 +87,7 @@ const AuthFrom = () => {
 
     return (
         <Wrapper>
+            <AppLogo smallWhite={true}/>
             <LoginForm onSubmit={handleSubmit(onSubmit)}>
                 <PersonIcon width="10rem" height="10rem"/>
                 <InputsWrapper>

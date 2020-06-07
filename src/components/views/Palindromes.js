@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SearchBarContainer from "../containers/SearchBarContainer";
 import {useSelector} from "react-redux";
 import PalindromeContainer from "../containers/PalindromeContainer";
+import AppLogo from "../logotypes/AppLogo";
 
 
 const Wrapper = styled.div`
@@ -33,7 +34,9 @@ const Palindromes = () => {
 
     return (
         <>
-            <Header/>
+            <Header>
+                <AppLogo/>
+            </Header>
             <Wrapper>
                 <SearchBarContainer/>
                 <h3>Last checked</h3>
