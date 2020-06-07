@@ -2,6 +2,9 @@
 
 Check live demo at [https://dereypl.github.io/palindrome-checker/#/](https://dereypl.github.io/palindrome-checker/#/).
 
+##### Username  `admin`
+##### Password  `admin`
+
 ### Available Scripts
 
 In the project directory, you can run:
