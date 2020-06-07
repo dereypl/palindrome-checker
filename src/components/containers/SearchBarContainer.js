@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import Input from "../inputs/Input";
 import Button from "../buttons/Button";
+import * as palindromeService from "../../services/palindromeService";
 
 
 const SearchBar = styled.section`
@@ -36,7 +37,7 @@ const SearchBarContainer = () => {
 
     const handleCheckButton = () => {
         //TODO: ADD EXPRESSION TO REDUX LIST
-        alert('check triggered : ' + expression);
+        console.log(palindromeService.checkIsPalindrome(expression));
         setExpression('');
     };
 
